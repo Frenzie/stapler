@@ -1,6 +1,10 @@
 name: Test & Deploy
 
-on: [push]
+on:
+  push:
+  release:
+    types:
+      - published
 
 jobs:
 
@@ -13,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: info
+        run: echo "${{ github.event_name }}"
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
