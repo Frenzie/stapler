@@ -18,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: info
-        run: echo "${{ github.event_name }}"
+        run: |
+          echo "${{ github.event_name }}"
+          echo "${{ github.ref }}"
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
